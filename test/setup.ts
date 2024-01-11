@@ -1,0 +1,12 @@
+import { rm } from 'fs';
+import { join } from 'path';
+
+global.beforeEach(async () => {
+  try {
+    await rm(
+      join(__dirname, '..', 'test.sqlite'),
+      { recursive: false },
+      (err) => {},
+    );
+  } catch (err) {}
+});
